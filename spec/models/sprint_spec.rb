@@ -10,5 +10,11 @@
 #  updated_at   :datetime
 #
 
-class Sprint < ActiveRecord::Base
+require 'spec_helper'
+
+describe Sprint, :type => :model do
+  it 'should create iterations when created' do
+  
+  end
+
 end

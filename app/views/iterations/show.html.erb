@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @iteration.date %>
+</p>
+
+<p>
+  <strong>Points completed:</strong>
+  <%= @iteration.points_completed %>
+</p>
+
+<p>
+  <strong>Sprint:</strong>
+  <%= @iteration.sprint_id %>
+</p>
+
+<%= link_to 'Edit', edit_iteration_path(@iteration) %> |
+<%= link_to 'Back', iterations_path %>
