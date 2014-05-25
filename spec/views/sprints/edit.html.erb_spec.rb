@@ -2,10 +2,7 @@ require 'spec_helper'
 
 describe "sprints/edit", :type => :view do
   before(:each) do
-    @sprint = assign(:sprint, Sprint.create!(
-      :title => "MyString",
-      :total_points => 1
-    ))
+    @sprint = assign(:sprint, create(:sprint))
   end
 
   it "renders the edit sprint form" do

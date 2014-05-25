@@ -11,4 +11,6 @@
 #
 
 class Iteration < ActiveRecord::Base
+  default_value_for :points_completed, 1
+  belongs_to :sprint
 end

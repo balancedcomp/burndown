@@ -14,9 +14,9 @@
 
 FactoryGirl.define do
   factory :sprint do
-    title "Sprint"
+    title         "Sprint"
+    start_date    Date.today
     total_points  Random.new.rand(10...30)
-
   end
 end
 

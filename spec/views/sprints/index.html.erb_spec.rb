@@ -3,14 +3,8 @@ require 'spec_helper'
 describe "sprints/index", :type => :view do
   before(:each) do
     assign(:sprints, [
-      Sprint.create!(
-        :title => "Title",
-        :total_points => 1
-      ),
-      Sprint.create!(
-        :title => "Title",
-        :total_points => 1
-      )
+      create(:sprint, title: 'Title', total_points: 1),
+      create(:sprint, title: 'Title', total_points: 1)
     ])
   end
 

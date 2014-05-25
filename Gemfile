@@ -32,7 +32,7 @@ gem 'spring',        group: :development
 
 
 
- gem 'unicorn'
+gem 'unicorn'
 gem 'annotate', ">=2.6.0"
 
 

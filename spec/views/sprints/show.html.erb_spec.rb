@@ -2,10 +2,7 @@ require 'spec_helper'
 
 describe "sprints/show", :type => :view do
   before(:each) do
-    @sprint = assign(:sprint, Sprint.create!(
-      :title => "Title",
-      :total_points => 1
-    ))
+    @sprint = assign(:sprint, create(:sprint))
   end
 
   it "renders attributes in <p>" do
