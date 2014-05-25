@@ -1,4 +1,4 @@
-#burn{style: "min-width: 310px; height: 500px; margin: 0 auto"}
+#burn{style: "min-width: 310px; min-height: 500px; margin: 0 auto"}
 
 -content_for :javascript do
   :javascript
@@ -15,8 +15,10 @@
                 backgroundColor: '#2D3E50'
 
             },
-        
-            credits: {enabled: false},
+
+            credits: {
+                enabled: false
+            },
 
             legend: {
                 enabled: false
@@ -28,7 +30,12 @@
                 text: ''
             },
             xAxis: {
-                labels: {style:{ color: "#ffffff"}},
+                labels: {
+                    y: 40,
+                    style: {
+                        color: "#ffffff"
+                    }
+                },
                 lineColor: "",
                 tickColor: '',
             },
@@ -42,30 +49,37 @@
                 title: {
                     text: null
                 },
-                labels: {style:{ color: "#ffffff"}}
+                labels: {
+                    x: -30,
+                    style: {
+                        color: "#ffffff"
+                    }
+                }
 
             },
-        
+
             plotOptions: {
 
-           
+
             },
             series: [
-            
-                {
-                    color: '#E64C66',
-                    name: 'Burndown',
-                    data: burn,
-                    lineWidth: 6,
-                    marker: { enabled: false }
-                },
-                {
+
+            {
+                color: '#E64C66',
+                name: 'Burndown',
+                data: burn,
+                lineWidth: 6,
+                marker: {
+                    enabled: false
+                }
+            }, {
                 color: '#1BBC9B',
                 name: 'Actual',
                 data: actual,
                 lineWidth: 6,
-                marker: {enabled: false}
+                marker: {
+                    enabled: false
                 }
-            ]
-            });
+            }]
         });
+    });

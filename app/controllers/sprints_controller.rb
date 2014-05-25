@@ -5,8 +5,6 @@ class SprintsController < ApplicationController
   # GET /sprints.json
   def index
     @sprints = Sprint.all
-    @sprint = Sprint.first
-    render :show
   end
 
   # GET /sprints/1

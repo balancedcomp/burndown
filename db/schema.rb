@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140524221732) do
+ActiveRecord::Schema.define(version: 20140525044715) do
 
   create_table "iterations", force: true do |t|
     t.date     "date"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140524221732) do
     t.date     "start_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "icon"
   end
 
 end
