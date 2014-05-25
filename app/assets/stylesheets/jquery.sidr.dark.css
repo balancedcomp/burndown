@@ -1,0 +1,36 @@
+/* line 3, ../../src/scss/sidr/_base.scss */
+.sidr {
+  /* Default Settings */
+  display: none;
+  position: absolute;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  z-index: 999999;
+  width: 260px;
+  /* Theme Settings */
+  font-size: 15px;
+  background: #333333;
+  color: white;
+
+}
+/* line 15, ../../src/scss/sidr/_base.scss */
+.sidr .sidr-inner {
+  padding: 0 0 15px;
+}
+/* line 18, ../../src/scss/sidr/_base.scss */
+.sidr .sidr-inner > p {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+/* line 24, ../../src/scss/sidr/_base.scss */
+.sidr.right {
+  left: auto;
+  right: -260px;
+}
+/* line 29, ../../src/scss/sidr/_base.scss */
+.sidr.left {
+  left: -260px;
+  right: auto;
+}
+/* line 41, ../../src/scss/sidr/_base.scss */

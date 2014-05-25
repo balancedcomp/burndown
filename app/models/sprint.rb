@@ -15,6 +15,23 @@ class Sprint < ActiveRecord::Base
   has_many :iterations, :dependent => :destroy
   
   
+  
+  
+  def total_points_completed
+    iterations.sum(:points_completed).to_f
+  end
+  
+  def points_remaining
+    total_points - total_points_completed
+  end
+  
+  
+  
+  
+  
+  
+  #HOOKS/CALLBACKS
+  
   before_create :add_iterations
   before_update :adjust_iterations
 

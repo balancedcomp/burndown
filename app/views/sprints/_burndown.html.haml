@@ -1,0 +1,71 @@
+#burn{style: "min-width: 310px; height: 500px; margin: 0 auto"}
+
+-content_for :javascript do
+  :javascript
+    $(function () {
+        var burn = [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+        var actual = [12, 11, 11, 11, 8, 7, 6, 5, 4, 3, 0];
+
+
+
+        $('#burn').highcharts({
+            chart: {
+                type: 'line',
+                backgroundColor: '#2D3E50'
+
+            },
+        
+            credits: {enabled: false},
+
+            legend: {
+                enabled: false
+            },
+            title: {
+                text: null
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                labels: {style:{ color: "#ffffff"}},
+                lineColor: "",
+                tickColor: '',
+            },
+            yAxis: {
+                gridLineColor: 'rgba(0,0,0,.3)',
+                tickInterval: 2,
+                min: 0,
+                //labels: {
+                //    format: '{value}%'
+                //},
+                title: {
+                    text: null
+                },
+                labels: {style:{ color: "#ffffff"}}
+
+            },
+        
+            plotOptions: {
+
+           
+            },
+            series: [
+            
+                {
+                    color: '#E64C66',
+                    name: 'Burndown',
+                    data: burn,
+                    lineWidth: 6,
+                    marker: { enabled: false }
+                },
+                {
+                color: '#1BBC9B',
+                name: 'Actual',
+                data: actual,
+                lineWidth: 6,
+                marker: {enabled: false}
+                }
+            ]
+            });
+        });

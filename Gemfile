@@ -32,6 +32,10 @@ gem 'spring',        group: :development
 
 
 
+
+gem "font-awesome-rails"
+
+
 gem 'unicorn'
 gem 'annotate', ">=2.6.0"
 
