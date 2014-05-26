@@ -41,6 +41,7 @@ gem 'business_time'
 gem "font-awesome-rails"
 
 
+gem 'rest_in_place'
 gem 'unicorn'
 gem 'annotate', ">=2.6.0"
 

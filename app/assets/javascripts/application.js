@@ -18,4 +18,5 @@
 //= require turbolinks
 //= require pickadate/picker
 //= require pickadate/picker.date
+//= require rest_in_place
 //= require_tree .

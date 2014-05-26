@@ -44,7 +44,7 @@ class IterationsController < ApplicationController
     respond_to do |format|
       if @iteration.update(iteration_params)
         format.html { redirect_to @sprint, notice: 'Iteration was successfully updated.' }
-        format.json { render :show, status: :ok, location: @iteration }
+        format.json { render json: @iteration }
       else
         format.html { render :edit }
         format.json { render json: @iteration.errors, status: :unprocessable_entity }

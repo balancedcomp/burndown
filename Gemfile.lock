@@ -120,6 +120,8 @@ GEM
       json (~> 1.4)
     ref (1.0.5)
     request_store (1.0.5)
+    rest_in_place (2.5.0)
+      rails (>= 3.1)
     rspec-core (3.0.0.rc1)
       rspec-support (= 3.0.0.rc1)
     rspec-expectations (3.0.0.rc1)
@@ -194,6 +196,7 @@ DEPENDENCIES
   pickadate-rails
   rails (= 4.1.1)
   rake
+  rest_in_place
   rspec-rails (~> 3.0.0.beta)
   sdoc (~> 0.4.0)
   simple_form

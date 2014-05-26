@@ -12,12 +12,10 @@
     .col-xs-12
       .row
         -for iteration in @iterations
-          %a{:href=> edit_sprint_iteration_path(@sprint, iteration)}
-            .iteration.col-xs-2{class: iteration.panel_class}
-              .iteration-date=iteration.date
-              .panel
-                .iteration-points-completed=iteration.points_completed
-        
+          .iteration.col-xs-2{class: iteration.panel_class}
+            .iteration-date=iteration.date
+            .panel
+              .iteration-points-completed.rest-in-place{'data-url'=> sprint_iteration_path(@sprint, iteration),'data-object' => 'iteration', 'data-attribute' => 'points_completed'}=iteration.points_completed
       
 .row#burn-show
 
