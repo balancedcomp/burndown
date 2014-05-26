@@ -8,6 +8,7 @@
 #  start_date   :date
 #  created_at   :datetime
 #  updated_at   :datetime
+#  icon         :string(255)
 #
 
 class Sprint < ActiveRecord::Base
@@ -32,7 +33,7 @@ class Sprint < ActiveRecord::Base
   
   #HOOKS/CALLBACKS
   
-  before_create :add_iterations
+  before_create :populate_iterations
   before_update :adjust_iterations
 
   def adjust_iterations
@@ -51,10 +52,19 @@ class Sprint < ActiveRecord::Base
     end
   end
   
-  
+  def populate_iterations
+    total_points.times do |i| 
+      iterations.build(:date => i.business_days.after(start_date))
+    end
+  end
+
   def add_iterations(i = total_points)
-    i.times do
-      iterations.build()
+    if iterations.any?
+      i.times do
+        iterations.build()
+      end
+    else
+      populate_iterations
     end
   end
   

@@ -1,5 +1,6 @@
 class IterationsController < ApplicationController
   before_action :set_iteration, only: [:show, :edit, :update, :destroy]
+  before_action :set_sprint, only: [:show, :edit, :update, :destroy]
 
   # GET /iterations
   # GET /iterations.json
@@ -28,7 +29,7 @@ class IterationsController < ApplicationController
 
     respond_to do |format|
       if @iteration.save
-        format.html { redirect_to @iteration, notice: 'Iteration was successfully created.' }
+        format.html { redirect_to @sprint, notice: 'Iteration was successfully created.' }
         format.json { render :show, status: :created, location: @iteration }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class IterationsController < ApplicationController
   def update
     respond_to do |format|
       if @iteration.update(iteration_params)
-        format.html { redirect_to @iteration, notice: 'Iteration was successfully updated.' }
+        format.html { redirect_to @sprint, notice: 'Iteration was successfully updated.' }
         format.json { render :show, status: :ok, location: @iteration }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class IterationsController < ApplicationController
   def destroy
     @iteration.destroy
     respond_to do |format|
-      format.html { redirect_to iterations_url, notice: 'Iteration was successfully destroyed.' }
+      format.html { redirect_to @sprint, notice: 'Iteration was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +66,10 @@ class IterationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_iteration
       @iteration = Iteration.find(params[:id])
+    end
+    
+    def set_sprint
+      @sprint = Sprint.find(params[:sprint_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

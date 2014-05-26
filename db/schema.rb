@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525044715) do
+ActiveRecord::Schema.define(version: 20140526030118) do
 
   create_table "iterations", force: true do |t|
-    t.date     "date"
+    t.datetime "date"
     t.decimal  "points_completed"
     t.integer  "sprint_id"
     t.datetime "created_at"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140525044715) do
   create_table "sprints", force: true do |t|
     t.string   "title"
     t.integer  "total_points"
-    t.date     "start_date"
+    t.datetime "start_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "icon"

@@ -16,4 +16,6 @@
 //= require highcharts
 //= require highcharts/highcharts-more
 //= require turbolinks
+//= require pickadate/picker
+//= require pickadate/picker.date
 //= require_tree .

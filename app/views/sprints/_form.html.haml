@@ -1,0 +1,17 @@
+
+.well
+  =simple_form_for @sprint do |f|
+    .row
+      .col-xs-12
+        =f.input :title, input_html: {class:"input-lg"}
+    .row
+      .col-xs-12
+        =f.input :start_date, as: :string, input_html: {class:"input-lg datepicker"}
+    .row
+      .col-xs-6
+        =f.input :total_points, input_html: {class:"input-lg"}
+      .col-xs-6
+        =f.input :icon, as: :select, :collection => {"Design" => "pencil", "Code/Refactor/Tests" => "code", "Bugs" => 'bug', "Enhancements" => "flask", "Misc" => "bomb"}, input_html: {:class=>'input-lg'}
+    .row
+      .col-xs-12
+        = f.submit class: 'btn btn-lg btn-success'

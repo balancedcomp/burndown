@@ -15,6 +15,9 @@
  *= require font-awesome
  *= require type
  *= require jquery.sidr.dark.css
+ *= require pickadate/default
+ *= require pickadate/default.date
+ *= require forms
  */
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900);
 

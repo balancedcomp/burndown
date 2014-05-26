@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-
+gem 'rake'
 gem 'less-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -31,7 +31,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 
+gem 'draper', '~> 1.3'
 
+gem 'simple_form'
+gem 'pickadate-rails'
+
+gem 'business_time'
 
 gem "font-awesome-rails"
 

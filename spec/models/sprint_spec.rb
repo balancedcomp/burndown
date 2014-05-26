@@ -8,6 +8,7 @@
 #  start_date   :date
 #  created_at   :datetime
 #  updated_at   :datetime
+#  icon         :string(255)
 #
 
 require 'spec_helper'
@@ -39,6 +40,11 @@ describe Sprint, :type => :model do
     expect(Iteration.all.size).to eql(0)
   end
   
+  it 'poplulates iterations with correct dates' do
+    sprint = create(:sprint)
+    first_iteration = sprint.iterations.first
+    expect(first_iteration.date).to eql(sprint.start_date)
+  end
     
 
 end

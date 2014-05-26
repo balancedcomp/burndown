@@ -1,14 +1,32 @@
 =content_for :page_title do
 
-  %i.fa.fa-scissors.fa-flip-horizontal.red
+  =icon :icon => @sprint.icon, :css_classes => 'red'
   = @sprint.title
 
 =content_for :side_panel do
   %h1 Hello
 
+#burn-edit.hidden-print
+  /{style: "display:none;"}
+  .row
+    .col-xs-4
 
+      %br
+      =render 'form'
+
+    .col-xs-8
+      .row
+        -@sprint.iterations.each do |iteration|
+          .iterations.col-xs-2.text-center
+
+            =iteration.date.strftime('%a %b %e') rescue nil
+            .panel.green-bg.text-center{style: "min-height: 100px;"}
+              %h3=iteration.points_completed
+              =link_to 'edit', edit_sprint_iteration_path(@sprint, iteration)
+        
       
-.row
+.row#burn-show
+
   .col-xs-4
     %dl.dl-horizontal
       %dt Start Date
@@ -29,14 +47,23 @@
 
 
 
-%dl.dl-horizontal
-  %dt=icon icon: 'pencil'
-  %dd Design
-  %dt= icon icon: 'code'
-  %dd Code/Refactor/Tests
-  %dt=icon icon: 'bug'
-  %dd Bugs
-  %dt=icon icon: 'flask'
-  %dd Enchancement
-  %dt=icon icon: 'bomb'
-  %dd Misc
+-content_for :javascript do
+  :coffee
+
+    $(document).keyup (e) ->
+      if e.keyCode is 27
+      
+        if $('#burn-show').is(":visible")
+          $("#burn-show").fadeToggle ->
+            $("#burn-edit").fadeToggle()
+            return
+        
+        if $('#burn-edit').is(":visible")
+          $("#burn-edit").fadeToggle ->
+            $("#burn-show").fadeToggle()
+            return
+        
+        
+      return
+
+    # esc
