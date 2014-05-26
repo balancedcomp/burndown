@@ -27,8 +27,17 @@ class Sprint < ActiveRecord::Base
   end
   
   
+  def burn_date
+    total_points.business_days.after(start_date)
+  end
   
+  def actual_date
+    points_remaining.to_i.business_days.after(Date.today)
+  end
   
+  def on_time?
+    actual_date <= burn_date
+  end
   
   
   #HOOKS/CALLBACKS

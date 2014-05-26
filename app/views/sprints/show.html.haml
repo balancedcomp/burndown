@@ -7,16 +7,13 @@
   %h1 Hello
 
 #burn-edit.hidden-print{style: "display:none;"}
-  .row
-    .col-xs-12
-      =render 'form'
-  %br
+
   .row
     .col-xs-12
       .row
         -for iteration in @iterations
           %a{:href=> edit_sprint_iteration_path(@sprint, iteration)}
-            .iteration.col-xs-2{class: iteration.panel_class, :"data-link-to" => edit_sprint_iteration_path(@sprint, iteration)}
+            .iteration.col-xs-2{class: iteration.panel_class}
               .iteration-date=iteration.date
               .panel
                 .iteration-points-completed=iteration.points_completed
@@ -25,20 +22,49 @@
 .row#burn-show
 
   .col-xs-4
-    %dl.dl-horizontal
-      %dt Start Date
-      %dd=@sprint.start_date
-      %dt Total Points
-      %dd= @sprint.total_points.to_f
-      %dt Points Remaining
-      %dd= @sprint.points_remaining
+    %br
+    %br
+    %br
+    %h2
+      =icon icon: 'flag', css_classes: 'green'
+      &nbsp;
+      =@sprint.start_date.strftime('%A, %B %e')
+
+    %h2
+      =icon icon: 'flag-checkered', css_classes: 'red'
+      &nbsp;
+      =@sprint.burn_date.strftime('%A, %B %e')
+    
+    %br
+    %br
+    %h1{style: "font-size: 86px; "}
+      %span.green=@sprint.total_points_completed
+      %span.light-blue= "|"
+      %span.red= @sprint.total_points.to_f
+    %br
+    %br
+    %br
+    %h2
+      -if @sprint.on_time?
+        %span.green
+          %span.green{style: "font-size: 20px"} Boomtown!
+          %br
+          %span.thick-text On Time!
+      -else
+        %span.red
+          %span.red{style: "font-size: 20px"} Oh Noes!
+          %br
+          %span.thick-text=@sprint.actual_date.strftime('%A, %B %e') 
+
+        
+
   .col-xs-8
-    .text-center
-      %h2
-        =icon icon: "fire-extinguisher", css_classes: "green"
-        %span.red Feel the Burn
-      %br
-    =render 'burndown'
+
+    .slabbed-thick
+      .text-center
+        %h1.red Feel the Burn
+        %br
+        =render 'burndown'
 
 
 

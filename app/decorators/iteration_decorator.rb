@@ -15,7 +15,7 @@ class IterationDecorator < Draper::Decorator
   end
   
   def points_completed
-    object.points_completed || 0
+    object.points_completed || "-"
   end
   
   

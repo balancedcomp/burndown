@@ -1,19 +1,48 @@
-%h1 Listing sprints
-%table.table
-  %thead
-    %tr
-      %th Title
-      %th Total points
-      %th Start date
-      %th{colspan: "3"}
-  %tbody
-    - @sprints.each do |sprint|
-      %tr
-        %td= sprint.title
-        %td= sprint.total_points
-        %td= sprint.start_date
-        %td= link_to 'Show', sprint
-        %td= link_to 'Edit', edit_sprint_path(sprint)
-        %td= link_to 'Destroy', sprint, method: :delete, data: { confirm: 'Are you sure?' }
+-content_for :page_title do
+  =icon icon: 'pied-piper-alt', css_classes: 'red'
+  Sprints, Sprints Everywhere!
+
+
+-for sprint in @sprints
+  %a{href: sprint_path(sprint)}
+    .tabled-sprint.row.slabbed
+      .col-xs-6
+        %h1
+          %span.red=icon icon: sprint.icon
+          &nbsp;
+          %span{:style => "color:#fff;"}=sprint.title 
+      .col-xs-3.text-right
+        %h1
+          %span.green=sprint.total_points_completed
+          %span.light-blue= "><"
+          %span.red=sprint.total_points.to_f
+      .col-xs-3
+        %h1
+          -if sprint.on_time?
+            %span.green
+              %span.thick-text On Time!
+          -else
+            %span.red
+              %span.thick-text=sprint.actual_date.strftime(' %B %e') 
+    
+
+//table.table
+// %thead
+//   %tr
+//     %th Title
+//     %th Total points
+//     %th Start date
+//     %th{colspan: "3"}
+// %tbody
+//   - @sprints.each do |sprint|
+//     %tr
+//       %td= sprint.title
+//       %td= sprint.total_points
+//       %td= sprint.start_date
+//       %td= link_to 'Show', sprint
+//       %td= link_to 'Edit', edit_sprint_path(sprint)
+//       %td= link_to 'Destroy', sprint, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'New Sprint', new_sprint_path
+= link_to 'New Sprint', '#', "data-toggle" => "collapse", "data-target" => "#demo"
+#new_sprint_container.collapse.in
+  =render partial: 'form', locals: {:@sprint => Sprint.new}
