@@ -7,13 +7,23 @@
         var actual = []
         
         <%- @sprint.total_points.downto(0) do |i| %>
-          burn.push(<%= i %>)
+          burn.push(<%= i %>);
+        <% end %>
+
+        <%-burn_number = @sprint.total_points%>
+        actual.push(<%= @sprint.total_points %>)
+        <%- @sprint.iterations.each do |i| %>
+          <%-burn_number -= (i.points_completed || 1) %>
+          actual.push(<%= burn_number %>);
         <% end %>
         
-        
+        <%-until burn_number <= 0 %>
+          <%-burn_number -= 1 %>
+          actual.push(<%= burn_number %>);
+        <% end %>
         
 
-        actual = [12, 11, 11, 11, 8, 7, 6, 5, 4, 3, 0];
+
 
 
 
@@ -40,11 +50,9 @@
             xAxis: {
                 labels: {
                     y: 40,
-                    style: {
-                        color: "#ffffff"
-                    }
+                    style: { color: "#ffffff" }
                 },
-                lineColor: "",
+                lineColor: '',
                 tickColor: '',
             },
             yAxis: {

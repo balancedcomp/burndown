@@ -1,3 +1,40 @@
 // Place all the styles related to the Iterations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@red: #E64C66;
+@blue: #2D3E50;
+@green: #1BBC9B;
+@grey: #AEAEAE;
+
+.iteration{
+  text-align: center;
+  .iteration-date {
+    color: lighten(@blue, 60%);
+    margin-bottom: 5px;
+    }
+    .panel {
+      background-color: lighten(@blue,5);
+      min-height: 100px;
+      text-align:center;
+      .iteration-points-completed {
+        color: lighten(@blue,20);
+        font-size: 60px;
+        }
+    }
+}
+
+.iteration.iteration-success {
+  .panel{
+    background-color: @green;
+    .iteration-points-completed {
+      color: #fff;
+    }
+  }
+}
+
+.iteration.iteration-failure {
+  .panel{
+    background-color: @red;
+  }
+}

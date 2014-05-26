@@ -6,23 +6,20 @@
 =content_for :side_panel do
   %h1 Hello
 
-#burn-edit.hidden-print
-  /{style: "display:none;"}
+#burn-edit.hidden-print{style: "display:none;"}
   .row
-    .col-xs-4
-
-      %br
+    .col-xs-12
       =render 'form'
-
-    .col-xs-8
+  %br
+  .row
+    .col-xs-12
       .row
-        -@sprint.iterations.each do |iteration|
-          .iterations.col-xs-2.text-center
-
-            =iteration.date.strftime('%a %b %e') rescue nil
-            .panel.green-bg.text-center{style: "min-height: 100px;"}
-              %h3=iteration.points_completed
-              =link_to 'edit', edit_sprint_iteration_path(@sprint, iteration)
+        -for iteration in @iterations
+          %a{:href=> edit_sprint_iteration_path(@sprint, iteration)}
+            .iteration.col-xs-2{class: iteration.panel_class, :"data-link-to" => edit_sprint_iteration_path(@sprint, iteration)}
+              .iteration-date=iteration.date
+              .panel
+                .iteration-points-completed=iteration.points_completed
         
       
 .row#burn-show
@@ -30,7 +27,7 @@
   .col-xs-4
     %dl.dl-horizontal
       %dt Start Date
-      %dd=l @sprint.start_date
+      %dd=@sprint.start_date
       %dt Total Points
       %dd= @sprint.total_points.to_f
       %dt Points Remaining

@@ -10,6 +10,7 @@ class SprintsController < ApplicationController
   # GET /sprints/1
   # GET /sprints/1.json
   def show
+    @iterations = IterationDecorator.decorate_collection(@sprint.iterations)
   end
 
   # GET /sprints/new
