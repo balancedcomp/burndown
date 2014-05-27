@@ -1,7 +1,7 @@
 =content_for :page_title do
 
   =icon :icon => @sprint.icon, :css_classes => 'red'
-  = @sprint.title
+  %span.rest-in-place{'data-url'=> sprint_path(@sprint),'data-object' => 'sprint', 'data-attribute' => 'title'}= @sprint.title
 
 =content_for :side_panel do
   %h1 Hello
@@ -63,28 +63,3 @@
         %h1.red Feel the Burn
         %br
         =render 'burndown'
-
-
-
-
-
--content_for :javascript do
-  :coffee
-
-    $(document).keyup (e) ->
-      if e.keyCode is 27
-      
-        if $('#burn-show').is(":visible")
-          $("#burn-show").fadeToggle ->
-            $("#burn-edit").fadeToggle()
-            return
-        
-        if $('#burn-edit').is(":visible")
-          $("#burn-edit").fadeToggle ->
-            $("#burn-show").fadeToggle()
-            return
-        
-        
-      return
-
-    # esc

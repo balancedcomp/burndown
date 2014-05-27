@@ -19,4 +19,5 @@
 //= require pickadate/picker
 //= require pickadate/picker.date
 //= require rest_in_place
+//= require jquery.hotkeys
 //= require_tree .
