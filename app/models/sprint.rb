@@ -69,8 +69,9 @@ class Sprint < ActiveRecord::Base
 
   def add_iterations(i = total_points)
     if iterations.any?
+      last_iteration_date = iterations.last.date
       i.times do
-        iterations.build()
+        iterations.build(:date => i.business_days.after(last_iteration_date))
       end
     else
       populate_iterations

@@ -45,6 +45,15 @@ describe Sprint, :type => :model do
     first_iteration = sprint.iterations.first
     expect(first_iteration.date).to eql(sprint.start_date)
   end
+  
+  it 'populates added/adjusted iterations with correct dates' do
+    sprint = create(:sprint)
+    last_iteration = sprint.iterations.last
+    sprint.add_iterations(1)
+    sprint.save
+    newest_iteration = sprint.iterations.last
+    expect(newest_iteration.date).to eql(last_iteration.date+1.day)
+  end
     
 
 end

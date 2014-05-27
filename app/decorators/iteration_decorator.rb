@@ -11,7 +11,7 @@ class IterationDecorator < Draper::Decorator
   #   end
   
   def date
-    object.date.strftime('%a %b %e')
+    object.date.strftime('%a %b %e') rescue nil
   end
   
   def points_completed
@@ -20,12 +20,15 @@ class IterationDecorator < Draper::Decorator
   
   
   def panel_class
-    if object.date < Date.today
-      if object.points_completed.nil? || object.points_completed < 1
-        "iteration-failure"
-      else
-        "iteration-success"
+    begin
+      if object.date < Date.today
+        if object.points_completed.nil? || object.points_completed < 1
+          "iteration-failure"
+        else
+          "iteration-success"
+        end
       end
+    rescue
     end
   end
   
