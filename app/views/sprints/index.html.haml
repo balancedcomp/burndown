@@ -4,7 +4,7 @@
 
 
 -for sprint in @sprints
-  %a{href: sprint_path(sprint)}
+  %a{href: sprint_path(sprint), "data-no-turbolink" => true}
     .tabled-sprint.row.slabbed
       .col-xs-6
         %h1

@@ -12,12 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
 //= require twitter/bootstrap
 //= require highcharts
 //= require highcharts/highcharts-more
-//= require turbolinks
 //= require pickadate/picker
 //= require pickadate/picker.date
 //= require rest_in_place
 //= require jquery.hotkeys
+//= require inits
 //= require_tree .
