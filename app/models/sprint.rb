@@ -36,7 +36,11 @@ class Sprint < ActiveRecord::Base
   end
   
   def on_time?
-    actual_date <= burn_date
+    actual_date = burn_date
+  end
+  
+  def early?
+    actual_date < burn_date
   end
   
   

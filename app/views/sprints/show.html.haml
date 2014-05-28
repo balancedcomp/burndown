@@ -43,11 +43,20 @@
     %br
     %br
     %h2
-      -if @sprint.on_time?
+      -if @sprint.early?
+        %span.green
+          %span.green{style: "font-size: 20px"}=@sprint.actual_date.strftime('%A, %B %e') 
+          %br
+          %span.thick-text EARLY?! Early.
+          %br
+
+      
+      -elsif @sprint.on_time?
         %span.green
           %span.green{style: "font-size: 20px"} Boomtown!
           %br
           %span.thick-text On Time!
+
       -else
         %span.red
           %span.red{style: "font-size: 20px"} Oh Noes!
