@@ -43,6 +43,13 @@ class Sprint < ActiveRecord::Base
     actual_date < burn_date
   end
   
+  def late?
+    actual_date > burn_date
+  end
+  
+  def started?
+    start_date >= Date.today
+  end
   
   #HOOKS/CALLBACKS
   
