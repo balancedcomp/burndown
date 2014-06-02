@@ -10,7 +10,7 @@
         %h1
           %span.red=icon icon: sprint.icon
           &nbsp;
-          %span{:style => "color:#fff;"}=sprint.title 
+          %span{:style => "color:#fff;"}=sprint.title
       .col-xs-3.text-right
         %h1
           %span.green=sprint.total_points_completed
@@ -27,26 +27,4 @@
               %span.thick-text On Time!
           -elsif sprint.late?
             %span.red
-              %span.thick-text=sprint.actual_date.strftime(' %B %e') 
-    
-
-//table.table
-// %thead
-//   %tr
-//     %th Title
-//     %th Total points
-//     %th Start date
-//     %th{colspan: "3"}
-// %tbody
-//   - @sprints.each do |sprint|
-//     %tr
-//       %td= sprint.title
-//       %td= sprint.total_points
-//       %td= sprint.start_date
-//       %td= link_to 'Show', sprint
-//       %td= link_to 'Edit', edit_sprint_path(sprint)
-//       %td= link_to 'Destroy', sprint, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Sprint', '#', "data-toggle" => "collapse", "data-target" => "#demo"
-#new_sprint_container.collapse.in
-  =render partial: 'form', locals: {:@sprint => Sprint.new}
+              %span.thick-text=sprint.actual_date.strftime(' %B %e')
