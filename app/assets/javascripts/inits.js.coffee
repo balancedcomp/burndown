@@ -10,6 +10,9 @@ sprints = () ->
 
 sprintsNew = () ->
   location.href="/sprints/new"
+sprintEdit = () ->
+  location.href += "/edit"
+
 
 
 showIterations = () ->
@@ -25,4 +28,5 @@ showIterations = () ->
 
 $(document).bind "keyup", "s", sprints
 $(document).bind "keyup", "n", sprintsNew
+$(document).bind "keyup", "e", sprintEdit
 $(document).bind "keyup", "i", showIterations
