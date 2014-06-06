@@ -32,7 +32,7 @@ class Sprint < ActiveRecord::Base
   end
 
   def actual_date
-    points_remaining.to_i.business_days.after(Date.today-1)
+    points_remaining.to_i.business_days.after(Date.today)
   end
 
   def on_time?
